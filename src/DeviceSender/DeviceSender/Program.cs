@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using Microsoft.Data.Edm.Validation;
+using System.Globalization;
 
 namespace DeviceSender
 {
@@ -169,17 +170,17 @@ namespace DeviceSender
                 IterationSeconds = int.Parse(ConfigurationManager.AppSettings["IterationSeconds"]),
                 NumberOfDevices = int.Parse(ConfigurationManager.AppSettings["NumberOfDevices"]),
                 NumberOfDeviceTypes = 4,
-                TemperatureMax = float.Parse(ConfigurationManager.AppSettings["TemperatureMax"]),
-                TemperatureMin = float.Parse(ConfigurationManager.AppSettings["TemperatureMin"]),
-                HumidityMin = float.Parse(ConfigurationManager.AppSettings["HumidityMin"]),
-                HumidityMax = float.Parse(ConfigurationManager.AppSettings["HumidityMax"]),
-                EnergyMin = float.Parse(ConfigurationManager.AppSettings["EnergyMin"]),
-                EnergyMax = float.Parse(ConfigurationManager.AppSettings["EnergyMax"]),
-                LightMin = float.Parse(ConfigurationManager.AppSettings["LightMin"]),
-                LightMax = float.Parse(ConfigurationManager.AppSettings["LightMax"]),
+                TemperatureMax = float.Parse(ConfigurationManager.AppSettings["TemperatureMax"], CultureInfo.InvariantCulture),
+                TemperatureMin = float.Parse(ConfigurationManager.AppSettings["TemperatureMin"], CultureInfo.InvariantCulture),
+                HumidityMin = float.Parse(ConfigurationManager.AppSettings["HumidityMin"], CultureInfo.InvariantCulture),
+                HumidityMax = float.Parse(ConfigurationManager.AppSettings["HumidityMax"], CultureInfo.InvariantCulture),
+                EnergyMin = float.Parse(ConfigurationManager.AppSettings["EnergyMin"], CultureInfo.InvariantCulture),
+                EnergyMax = float.Parse(ConfigurationManager.AppSettings["EnergyMax"], CultureInfo.InvariantCulture),
+                LightMin = float.Parse(ConfigurationManager.AppSettings["LightMin"], CultureInfo.InvariantCulture),
+                LightMax = float.Parse(ConfigurationManager.AppSettings["LightMax"], CultureInfo.InvariantCulture),
                 MillisecondDelay = int.Parse(ConfigurationManager.AppSettings["MillisecondDelay"]),
                 RedirectToLocalFile = false,
-                RedirectFileName = ""
+                RedirectFileName = "" 
             };
         }
     }
