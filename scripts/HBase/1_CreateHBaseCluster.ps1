@@ -7,7 +7,7 @@ $vnetName = "Vnet1"
 $subnetName = "Subnet-1"
 
 # Check if the storage account exists.  If not create the storage account.
-If (!(Test-AzureName -Service $storageAccountName)) 
+If (!(Test-AzureName -Storage $storageAccountName)) 
 {
     New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $Location 
 }

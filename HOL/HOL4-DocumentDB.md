@@ -140,7 +140,7 @@ Time to complete: **10 minutes**
 	```xml
 	<appSettings>
     	<add key="ServiceBus.ConnectionString" value="Endpoint=sb://<sbNamespace>.servicebus.windows.net/;SharedAccessKeyName=<policyname>;SharedAccessKey=<policyKey>" />
-    	<add key="ServiceBus.Path" value="\<hubName>" />
+    	<add key="ServiceBus.Path" value="<hubName>" />
     	<add key="ServiceBus.ConsumerGroup" value="$Default" />
     	<add key="ServiceBus.partitions" value="8" />
     	<add key="DocumentServiceEndpoint" value="https://<documentdbName>.documents.azure.com:443/" />
@@ -425,26 +425,26 @@ A number of other methods exist that retrieve a specific subset of documents
 ```c#
 	public IEnumerable<EnergyDocument> GetEnergyData()
     {
-        return _documentClient.CreateDocumentQuery<EnergyDocument>(_documentCollection.DocumentsLink, String.Format("SELECT * FROM {0} t WHERE ISDEFINED(t, 'Kwh')",
+        return _documentClient.CreateDocumentQuery<EnergyDocument>(_documentCollection.DocumentsLink, String.Format("SELECT * FROM {0} t WHERE IS_DEFINED(t.Kwh)",
             ConfigurationManager.AppSettings["DocumentCollection"])).ToList();
     }
 
     public IEnumerable<TemperatureDocument> GetTemperatureData()
     {
-        return _documentClient.CreateDocumentQuery<TemperatureDocument>(_documentCollection.DocumentsLink, String.Format("SELECT * FROM {0} t WHERE ISDEFINED(t, 'Temperature')",
+        return _documentClient.CreateDocumentQuery<TemperatureDocument>(_documentCollection.DocumentsLink, String.Format("SELECT * FROM {0} t WHERE IS_DEFINED(t.Temperature)",
             ConfigurationManager.AppSettings["DocumentCollection"])).ToList();
     }
 
     public IEnumerable<HumidityDocument> GetHumidityData()
     {
-        return _documentClient.CreateDocumentQuery<HumidityDocument>(_documentCollection.DocumentsLink, String.Format("SELECT * FROM {0} t WHERE ISDEFINED(t, 'Humidity')",
+        return _documentClient.CreateDocumentQuery<HumidityDocument>(_documentCollection.DocumentsLink, String.Format("SELECT * FROM {0} t WHERE IS_DEFINED(t.Humidity)",
             ConfigurationManager.AppSettings["DocumentCollection"])).ToList();
         
     }
 
     public IEnumerable<LightDocument> GetLightData()
     {
-        return _documentClient.CreateDocumentQuery<LightDocument>(_documentCollection.DocumentsLink, String.Format("SELECT * FROM {0} t WHERE ISDEFINED(t, 'Lumens')",
+        return _documentClient.CreateDocumentQuery<LightDocument>(_documentCollection.DocumentsLink, String.Format("SELECT * FROM {0} t WHERE IS_DEFINED(t.Lumens)",
             ConfigurationManager.AppSettings["DocumentCollection"])).ToList();
     }
 ```
@@ -452,10 +452,10 @@ A number of other methods exist that retrieve a specific subset of documents
 These are the queries that are performed
 
 ```SQL
-	SELECT * FROM mycollection t WHERE ISDEFINED(t, 'Kwh')
-	SELECT * FROM mycollection t WHERE ISDEFINED(t, 'Temperature')
-	SELECT * FROM mycollection t WHERE ISDEFINED(t, 'Humidity')
-	SELECT * FROM mycollection t WHERE ISDEFINED(t, 'Lumens')
+	SELECT * FROM mycollection t WHERE IS_DEFINED(t.Kwh)
+	SELECT * FROM mycollection t WHERE IS_DEFINED(t.Temperature)
+	SELECT * FROM mycollection t WHERE IS_DEFINED(t.Humidity)
+	SELECT * FROM mycollection t WHERE IS_DEFINED(t.Lumens)
 ```
 
 You could try these queries in the DocumentDB Query Explorer.  This can be found in the Microsoft Azure portal [https://portal.azure.com/](https://portal.azure.com/).  Locate the DocumentDB and click the Query Explorer button.
