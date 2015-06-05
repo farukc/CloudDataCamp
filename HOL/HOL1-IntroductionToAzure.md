@@ -116,19 +116,15 @@ Microsoft Azure supports multiple methods to create and manage storage accounts.
 
 1. 	Navigate to the Microsoft Azure portal [https://portal.azure.com/](https://portal.azure.com/).
 
-2. 	In the lower left hand corner of the screen Click New -> Everything -> Storage, cache, + backup and select Storage Account.
+2. 	In the upper left hand corner of the screen Click New -> Data + Storage and select Storage.
 
 	![alt text](images/CreateStorageAccount/createStorageAccountImg1.png "createStorageAccountImg1.png") 
 
-3. 	Click Create button in the new blade. 
-
-	![alt text](images/CreateStorageAccount/createStorageAccountImg2.png "createStorageAccountImg2.png")
-
-4. 	Review the options in the **Storage account** blade. 
+3. 	Review the options in the **Storage account** blade. 
 
 	![alt text](images/CreateStorageAccount/createStorageAccountImg3.png "createStorageAccountImg3.png")
 
-5. 	Enter a name for the storage account. A warning will appear if the name is not globally unique.
+4. 	Enter a name for the storage account. A warning will appear if the name is not globally unique.
 
 6. 	Click on pricing tiers to display the Pricing Tiers blade.  Select LRS and click **Select** in the lower left corner of the blade. 
 
@@ -169,7 +165,7 @@ Ensure that when this step is complete you click Select at the bottom of the bla
 
 ## 3.3. Create an Azure Blob Storage Container ##
 
-Data in the storage account is stored and organized in containers.  The following steps will creaete a container that will be used in the remaining labs.  The final steps of this section will walk through using AZCopy to move data from the course virtual machine to the new storage account container.  
+Data in the storage account is stored and organized in containers.  The following steps will create a container that will be used in the remaining labs.  The final steps of this section will walk through using AZCopy to move data from the course virtual machine to the new storage account container.  
 
 1. 	Navigate to the newly created storage account and review the properties and options for this account.   
 
@@ -187,9 +183,9 @@ Data in the storage account is stored and organized in containers.  The followin
 
 	![alt text](images/CreateStorageAccount/createStorageAccountImg12.png "createStorageAccountImg12.png")
 
-5. 	A new **Add a container** blade will open.  Enter the name **data** for the container.  Note the options for **Access type**, which we also refer to as the policy.  The default access type is Private.  Private will require a key to access data in the container, and will be the most secure. Validate the Access type is set to Private for our exercises.  Click **OK** in the lower left corner of the blade.  
+5. 	A new **Add a container** blade will open.  Enter the name **data** for the container.  Note the options for **Access type**, which we also refer to as the policy.  The default access type is **Private**.  Private will require a key to access data in the container, and will be the most secure. Validate the Access type is set to Private for our exercises.  Click **OK** in the lower left corner of the blade.  
 
-	![alt text](images/CreateStorageAccount/add_container_withpolicy.png "createStorageAccountImg13.png")
+	![alt text](images/CreateStorageAccount/createStorageAccountImg13.png "createStorageAccountImg13.png")
 
 	n.b. If we changed the policy to one of the other two options we would be able to download data with just URLs. This is a great mechanism for sharing files to the world but not when you're using services where you want to keep the data private.
 
